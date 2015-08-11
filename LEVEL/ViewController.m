@@ -13,11 +13,21 @@
 @end
 
 @implementation ViewController
+-(void) accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration{
+    NSNumber *angle = [[NSNumber alloc]initWithFloat:(180.0/3.1415926)*acos(-1*[acceleration y])];
+                       NSString *anglest = [[NSString alloc] initWithFormat:@"%f",[angle floatValue]];
+                       [angleLabel setText:anglest];
+    [slider setValue:[angle floatValue]];
 
+                       }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    acl = [UIAccelerometer sharedAccelerometer];
+    acl.delegate = self;
+    [acl setUpdateInterval:.25];
+    
 }
 
 - (void)viewDidUnload
@@ -28,7 +38,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationLandscapeRight);
 }
 
 @end

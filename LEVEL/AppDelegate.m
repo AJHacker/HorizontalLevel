@@ -12,7 +12,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+     Override point for customization after application launch.
+    [_window addSubview: viewControler.view];
+    [_window makeKeyAndVisible];
+    [[UIDevice currentDevice] setOrientation:
+    UIInterfaceOrientationLandscapeRight];
     return YES;
 }
 							

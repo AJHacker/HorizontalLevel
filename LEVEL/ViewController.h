@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIAccelerometerDelegate>{
+    UIAccelerometer *acl;
+    IBOutlet UILabel *angleLabel;
+    IBOutlet UISlider *slider;
+}
+
 
 @end
